@@ -53,42 +53,6 @@ This project ensures your key user journeys (like login or dashboard access) alw
 | 🐳 Dockerized Setup | Ensures consistent results everywhere. |
 | 📊 HTML Reports | Generates detailed test summaries with screenshots. |
 
----
-
-## 🧩 Architecture
-
-Playwright-SRE works through three simple layers:
-
-┌────────────────────────────────────────────┐
-│  1️⃣ GitHub Actions (Automation Layer)     │
-│--------------------------------------------│
-│ • Runs Playwright tests automatically      │
-│ • Headless browsers (no GUI needed)        │
-│ • Uploads HTML reports as artifacts        │
-└────────────────────────────────────────────┘
-               │
-               ▼
-┌────────────────────────────────────────────┐
-│  2️⃣ Docker Environment (Consistency Layer) │
-│--------------------------------------------│
-│ • Uses Playwright base image               │
-│ • Includes browsers + dependencies         │
-│ • Same behavior locally & in CI            │
-└────────────────────────────────────────────┘
-               │
-               ▼
-┌────────────────────────────────────────────┐
-│  3️⃣ Playwright Engine (Testing Layer)     │
-│--------------------------------------------│
-│ • global.setup.ts → Logs in & saves session│
-│ • login.spec.ts → Validates functionality  │
-│ • visual.spec.ts → Verifies UI visuals     │
-│ • Produces HTML + visual reports           │
-└────────────────────────────────────────────┘
-               │
-               ▼
-✅ Output: Functional reliability + visual stability reports
-
 
 
 🔄 End-to-End Flow
