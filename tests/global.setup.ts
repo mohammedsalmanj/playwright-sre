@@ -3,7 +3,9 @@ import fs from 'fs';
 import path from 'path';
 
 async function globalSetup() {
-  const browser = await chromium.launch({ headless: false });
+  // Detect CI environment and set headless accordingly
+  const isCI = !!process.env.CI;
+  const browser = await chromium.launch({ headless: isCI }); // 👈 changed here
   const context = await browser.newContext();
   const page = await context.newPage();
 
