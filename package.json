@@ -1,0 +1,14 @@
+{
+  "name": "playwright-sre-v3",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "update": "npx playwright test -u",
+    "report": "npx playwright show-report",
+    "ci": "npx playwright test --reporter=dot"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0"
+  }
+}
