@@ -1,5 +1,6 @@
 name: Playwright Tests
 
+# Trigger the workflow on push and pull request events
 on:
   push:
     branches: [ main ]
@@ -8,32 +9,45 @@ on:
 
 jobs:
   test:
+    # Run the job on an ubuntu-latest environment
     runs-on: ubuntu-latest
     strategy:
+      # Define a matrix of tests to run
       matrix:
         browser: [chromium, firefox]
     steps:
+      # Checkout the code
       - uses: actions/checkout@v4
 
+      # Setup Node.js
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
+          # Install Node.js version 18
           node-version: 18
 
+      # Install dependencies
       - name: Install dependencies
         run: npm ci
 
+      # Install browsers
       - name: Install browsers
         run: npx playwright install --with-deps
 
+      # Run tests
       - name: Run tests
         env:
+          # Set an environment variable to indicate that the tests are running in a CI environment
           CI: true
         run: npx playwright test --project=${{ matrix.browser }} --reporter=dot
 
+      # Upload HTML report
       - name: Upload HTML Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
+          # Set the name of the artifact to "playwright-report"
           name: playwright-report
+          # Set the path of the artifact to "playwright-report"
           path: playwright-report
+
