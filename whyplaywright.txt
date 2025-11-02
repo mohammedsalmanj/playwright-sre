@@ -1,0 +1,26 @@
+
+
+
+Problem :
+
+Your tests fail sometimes in CI (Continuous Integration) — meaning:
+
+It’s not code failure, but test instability (flaky tests).
+
+The main causes could be:
+🧱 Selectors breaking,
+🧪 State contamination (session re-use issues), or
+🔍 Lack of observability (you can’t tell what happened).
+
+
+🍳 Analogy
+
+Think of your Playwright tests as a restaurant kitchen:
+
+Refactor selectors = label your ingredients properly (“salt” vs “white powder”).
+
+Isolate state = each chef uses their own cutting board (no contamination).
+
+Enhance observability = install CCTV cameras (trace/screenshot).
+
+👉 Together, they make your kitchen (CI) both fast and clean.
