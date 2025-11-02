@@ -28,3 +28,16 @@
                                       ▼
                            ✅ Reliability Results:
                 Functional checks + Visual checks + HTML reports
+
+
+
+Analogy Recap
+Layer	Analogy
+GitHub Actions - The operator who runs your reliability checks
+Docker - The lab that ensures consistent testing conditions
+Playwright - The robot tester performing real browser actions
+Reports	- The result file summarizing health and UI changes
+
+So the full flow is like this:
+
+GitHub (operator) → starts a Docker lab → runs Playwright robots → produces reports and screenshots → that’s your SRE-level reliability signal.
